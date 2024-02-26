@@ -15,7 +15,7 @@ export const transactionsUtils = {
 
     async depositTokens(amount) {
         console.log(amount, 'amount')
-        const amountWei = web3Utils.toWei(amount.toString())
+        const amountWei = web3Utils.toWei(amount.toString(), 'ether')
         console.log(amountWei, 'amountWei')
         const amountHex = web3Utils.numberToHex(amountWei)
         console.log(amountHex, 'amountHex')
