@@ -15,7 +15,9 @@ export const transactionsUtils = {
 
     async depositTokens(amount) {
         console.log(amount, 'amount')
-        const amountHex = web3Utils.numberToHex(amount)
+        const amountWei = web3Utils.toWei(amount.toString())
+        console.log(amountWei, 'amountWei')
+        const amountHex = web3Utils.numberToHex(amountWei)
         console.log(amountHex, 'amountHex')
         if (!window.ethereum) {
             return new Error('window.ethereum not found')
@@ -24,7 +26,7 @@ export const transactionsUtils = {
         console.log(contractInstance, 'contractInstance')
         let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
         console.log(accounts, 'accounts')
-        const tx = await contractInstance.populateTransaction.deposit(amountHex)
+        const tx = await contractInstance.populateTransaction.deposit()
         console.log(tx, 'tx')
 
 
