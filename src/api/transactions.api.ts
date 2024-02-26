@@ -1,10 +1,10 @@
 import http from './http'
+import utils from '../utils'
 
 export const TransactionsApi = {
-    async deposit(walletAddress: string, amount: number) {
-        return http.post('transactions/deposit', {
-            json: { walletAddress, amount },
-        })
+    async deposit(amount: number) {
+        const result = await utils.transactions.depositTokens(amount)
+        console.log(result, 'result')
     },
 
     async withdraw(walletAddress: string, amount: number) {

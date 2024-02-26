@@ -54,7 +54,7 @@ const handleConfirm = async () => {
   const { address } = useWeb3ModalAccount()
 
   if (activeAction.value === 'deposit') {
-    const response = await api.transactions.deposit(address.value, amount.value)
+    const response = await api.transactions.deposit(amount.value)
     console.log(response, 'response deposit')
   }
 
